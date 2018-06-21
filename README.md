@@ -119,7 +119,7 @@ See `example/index.html` as a simple example. It can be found online at
 <http://demos.rlaanemets.com/swi-prolog-wasm/example/>. The commented code
 inside the demo provides the documentation.
 
-To test it out locally, you need to server the files through an HTTP server.
+To test it out locally, you need to serve the files through an HTTP server.
 
 ## TODO
 
@@ -134,5 +134,6 @@ To test it out locally, you need to server the files through an HTTP server.
 ## License
 
 SWI-Prolog is covered with the Simplified BSD license. See <http://www.swi-prolog.org/license.html>
+
 zlib is covered with the zlib license. See <https://zlib.net/zlib_license.html>
 
