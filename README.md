@@ -95,7 +95,7 @@ the files:
 ## Usage
 
 Please see "Foreign Language Interface" (FLI) in the SWI-Prolog manual. A very limited
-set of function findings into JavaScript can be found in `example/bindings.js`.
+set of function findings into JavaScript can be seen in the demo.
 The bindings use [cwrap][cwrap] from Emscripten.
 
 [cwrap]:https://kripken.github.io/emscripten-site/docs/api_reference/preamble.js.html#cwrap
