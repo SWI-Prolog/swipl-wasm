@@ -65,11 +65,10 @@ Could not find documentation.  What do you want to do?
 
 Then say "3". We do not need documentation to build it.
 
-After this we can run autoconf, configure and compile:
+After this we can run configure and compile:
 
-```
+```sh
 cd "$HOME/swipl-devel/src"
-autoconf
 LDFLAGS=-L"$HOME/zlib-1.2.11" \
   LIBS=-lzlib \
   CPPFLAGS=-I"$HOME/zlib-1.2.11" \
@@ -83,7 +82,6 @@ emmake make
 This will build the necessary 3 files in `$HOME/swipl-devel/src`.
 See "Distribution".
 
-
 ## Distribution
 
 Binary distribution (in the `dist` directory) contains
@@ -93,4 +91,48 @@ the files:
  * `swipl-web.dat` - necessary files to initialize the runtime and the library.
  * `swipl-web.js` - JavaScript wrapper that loads the wasm code and prepares the
    virtual filesystem with the runtime initialization file and the library.
+
+## Usage
+
+Please see "Foreign Language Interface" (FLI) in the SWI-Prolog manual. A very limited
+set of function findings into JavaScript can be found in `example/bindings.js`.
+The bindings use [cwrap][cwrap] from Emscripten.
+
+[cwrap]:https://kripken.github.io/emscripten-site/docs/api_reference/preamble.js.html#cwrap
+
+General workflow:
+
+ * Set up a stub [Module object][module] with `noInitialRun: true` and other options.
+ * Set up FLI bindings in `Module.onRuntimeInitialized`.
+ * Use the bindings to call `PL_initialise`.
+ * Set up the location for standard library.
+ * Use the [FS API][fs] to write code files into the virtual filesystem.
+ * Load the code files from SWI-Prolog side using `consult/1` or a similar way.
+ * Interact with SWI-Prolog through its FLI.
+
+[module]:https://kripken.github.io/emscripten-site/docs/api_reference/module.html
+[fs]:https://kripken.github.io/emscripten-site/docs/api_reference/Filesystem-API.html
+
+### Demo
+
+See `example/index.html` as a simple example. It can be found online at
+<http://demos.rlaanemets.com/swi-prolog-wasm/example/>. The commented code
+inside the demo provides the documentation.
+
+To test it out locally, you need to server the files through an HTTP server.
+
+## TODO
+
+ * Provide full set of bindings?
+ * A way to call JavaScript from SWI-Prolog.
+ * Compile and add useful packages.
+ * Provide a mechanism to load packs?
+ * Easier way to turn Prolog terms into JS objects?
+ * See where WebAssembly goes and what interfaces
+   could be added (direct DOM access?).
+
+## License
+
+SWI-Prolog is covered with the Simplified BSD license. See <http://www.swi-prolog.org/license.html>
+zlib is covered with the zlib license. See <https://zlib.net/zlib_license.html>
 
