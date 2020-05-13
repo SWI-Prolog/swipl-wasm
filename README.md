@@ -18,7 +18,7 @@ the instruction on its [homepage][em-install].
 [em-install]:http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html
 
 After the successful installation load the Emscripten
-environment into the current terminal session (asjust path):
+environment into the current terminal session (adjust path):
 
 ```sh
 source ./emsdk_env.sh
