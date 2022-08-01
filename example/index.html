@@ -70,7 +70,7 @@ queens([C|Cs], Row0, [Col|Solution]) :-
             <p>
                 <a href="https://github.com/SWI-Prolog/roadmap/issues/43" target="_blank">More info</a>
             </p>
-        </div>      
+        </div>
         <script>
             let bindings = null;
             let stdin = '';
@@ -103,13 +103,13 @@ queens([C|Cs], Row0, [Col|Solution]) :-
                 // This will execute one iteration of toplevel.
                 call(bindings, 'break'); // see call.js
             }
-            
+
             input.addEventListener('submit', (e) => {
                 e.preventDefault();
                 query(bindings, e.target.elements.query.value);
                 e.target.elements.query.value = '';
             }, false);
-            
+
             editor.addEventListener('submit', (e) => {
                 e.preventDefault();
                 FS.writeFile('/file.pl', e.target.elements.file.value);
@@ -188,6 +188,6 @@ queens([C|Cs], Row0, [Col|Solution]) :-
                 }
             };
         </script>
-        <script src="../dist/swipl-web.js"></script>
+        <script src="swipl-web.js"></script>
     </body>
 </html>
