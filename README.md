@@ -1,3 +1,8 @@
+> This repository is superseeded by the normal SWI-Prolog development
+> distribution, see https://github.com/SWI-Prolog/swipl-wasm.  See
+> https://swi-prolog.discourse.group/t/swi-prolog-in-the-browser-using-wasm/5650
+> for updates on the WASM port.
+
 # SWI-Prolog ported to WebAssembly
 
 This repository contains instructions to compile a Prolog
